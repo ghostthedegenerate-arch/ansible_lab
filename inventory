@@ -1,2 +1,9 @@
+[servers]
 192.168.56.111
 192.168.56.112
+
+[servers:vars]
+ansible_user=ghost
+ansible_become=true
+ansible_become_method=sudo
+ansible_ssh_common_args='-tt'
