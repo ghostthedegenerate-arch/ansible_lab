@@ -1,0 +1,26 @@
+---
+- name: Configure UFW Firewall on servers
+  hosts: servers
+  become: true
+
+  tasks:
+
+    - name: Allow SSH 
+      ufw:
+        rule: allow
+        port: 22
+
+    - name: Allow HTTP (Nginx)
+      ufw:
+        rule: allow
+        port: 80
+
+    - name: Allow Docker app port 
+      ufw:
+        rule: allow
+        port: 8080
+
+    - name: Enable UFW firewall
+      ufw:
+        state: enabled
+        policy: deny
